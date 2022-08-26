@@ -113,7 +113,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
   private func registerDefaults() {
     UserDefaults.standard.register(defaults: [
       MVUserDefaultsKeys.staysOnTop: false,
-      MVUserDefaultsKeys.appearanceChangeOnFocusChange: true
+      MVUserDefaultsKeys.appearanceChangeOnFocusChange: true,
+      MVUserDefaultsKeys.typicalTimeSuffixes: false
     ])
   }
 }

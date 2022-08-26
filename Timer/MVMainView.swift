@@ -17,6 +17,7 @@ class MVMainView: NSView {
   public  var menuItem: NSMenuItem?
   private var soundMenuItems: [NSMenuItem] = []
   var appearanceChangeOnFocusMenuItem: NSMenuItem?
+  var typicalTimeSuffixMenuItem: NSMenuItem?
 
   // swiftlint:disable unused_setter_value
   override var menu: NSMenu? {
@@ -68,6 +69,12 @@ class MVMainView: NSView {
       keyEquivalent: ""
     )
     submenuViewConfig.addItem(appearanceChangeOnFocusMenuItem!)
+    typicalTimeSuffixMenuItem = NSMenuItem(
+      title: "Use typical minutes and seconds suffixes",
+      action: #selector(self.toggleViewItemState),
+      keyEquivalent: ""
+    )
+    submenuViewConfig.addItem(typicalTimeSuffixMenuItem!)
 
     self.contextMenu?.addItem(menuItem!)
     self.contextMenu?.addItem(menuItemSoundChoice)
@@ -127,6 +134,8 @@ class MVMainView: NSView {
     switch sender {
     case appearanceChangeOnFocusMenuItem:
       self.controller?.setViewState(value, forKey: MVUserDefaultsKeys.appearanceChangeOnFocusChange)
+    case typicalTimeSuffixMenuItem:
+      self.controller?.setViewState(value, forKey: MVUserDefaultsKeys.typicalTimeSuffixes)
     default:
       break
     }

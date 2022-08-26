@@ -120,6 +120,9 @@ class MVTimerController: NSWindowController {
     case MVUserDefaultsKeys.appearanceChangeOnFocusChange:
       mainView.appearanceChangeOnFocusMenuItem?.state = state
       clockView.appearanceChangeOnFocusChange(value)
+    case MVUserDefaultsKeys.typicalTimeSuffixes:
+      mainView.typicalTimeSuffixMenuItem?.state = state
+      clockView.typicalSuffixes = value
     default:
       break
     }
@@ -130,7 +133,8 @@ class MVTimerController: NSWindowController {
 
   private func loadViewStateFromUserDefaults() {
     let keys: [String] = [
-      MVUserDefaultsKeys.appearanceChangeOnFocusChange
+      MVUserDefaultsKeys.appearanceChangeOnFocusChange,
+      MVUserDefaultsKeys.typicalTimeSuffixes
     ]
     for key in keys {
       let value = UserDefaults.standard.bool(forKey: key)
