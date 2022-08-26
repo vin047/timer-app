@@ -115,7 +115,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
       MVUserDefaultsKeys.staysOnTop: false,
       MVUserDefaultsKeys.appearanceChangeOnFocusChange: true,
       MVUserDefaultsKeys.typicalTimeSuffixes: false,
-      MVUserDefaultsKeys.hideDigitalTimer: false
+      MVUserDefaultsKeys.hideDigitalTimer: false,
+      MVUserDefaultsKeys.fullDiskTimer: false
     ])
   }
 }

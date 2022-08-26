@@ -3,4 +3,5 @@ struct MVUserDefaultsKeys {
   static let appearanceChangeOnFocusChange = "appearanceChangeOnFocusChange"
   static let typicalTimeSuffixes = "typicalTimeSuffixes"
   static let hideDigitalTimer = "hideDigitalTimer"
+  static let fullDiskTimer = "fullDiskTimer"
 }

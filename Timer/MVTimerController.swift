@@ -126,6 +126,18 @@ class MVTimerController: NSWindowController {
     case MVUserDefaultsKeys.hideDigitalTimer:
       mainView.hideDigitalTimerMenuItem?.state = state
       clockView.timerTimeLabel.isHidden = value
+    case MVUserDefaultsKeys.fullDiskTimer:
+      mainView.fullDiskTimerMenuItem?.state = state
+      clockView.showFullDiskTimer(value)
+
+      // Hide digital timer when full disk view is on.
+      // Doesn't look very good when both are enabled.
+      // If full disk view is disabled, load whatever
+      // default the user has set.
+      let key = MVUserDefaultsKeys.hideDigitalTimer
+      let hideDigitalTimer = value || UserDefaults.standard.bool(forKey: key)
+      setViewState(hideDigitalTimer, forKey: key, save: false)
+      mainView.hideDigitalTimerMenuItem?.isEnabled = !value
     default:
       break
     }
@@ -138,7 +150,8 @@ class MVTimerController: NSWindowController {
     let keys: [String] = [
       MVUserDefaultsKeys.appearanceChangeOnFocusChange,
       MVUserDefaultsKeys.typicalTimeSuffixes,
-      MVUserDefaultsKeys.hideDigitalTimer
+      MVUserDefaultsKeys.hideDigitalTimer,
+      MVUserDefaultsKeys.fullDiskTimer
     ]
     for key in keys {
       let value = UserDefaults.standard.bool(forKey: key)
