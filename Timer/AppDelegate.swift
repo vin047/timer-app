@@ -114,7 +114,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     UserDefaults.standard.register(defaults: [
       MVUserDefaultsKeys.staysOnTop: false,
       MVUserDefaultsKeys.appearanceChangeOnFocusChange: true,
-      MVUserDefaultsKeys.typicalTimeSuffixes: false
+      MVUserDefaultsKeys.typicalTimeSuffixes: false,
+      MVUserDefaultsKeys.hideDigitalTimer: false
     ])
   }
 }

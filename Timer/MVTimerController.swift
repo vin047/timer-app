@@ -123,6 +123,9 @@ class MVTimerController: NSWindowController {
     case MVUserDefaultsKeys.typicalTimeSuffixes:
       mainView.typicalTimeSuffixMenuItem?.state = state
       clockView.typicalSuffixes = value
+    case MVUserDefaultsKeys.hideDigitalTimer:
+      mainView.hideDigitalTimerMenuItem?.state = state
+      clockView.timerTimeLabel.isHidden = value
     default:
       break
     }
@@ -134,7 +137,8 @@ class MVTimerController: NSWindowController {
   private func loadViewStateFromUserDefaults() {
     let keys: [String] = [
       MVUserDefaultsKeys.appearanceChangeOnFocusChange,
-      MVUserDefaultsKeys.typicalTimeSuffixes
+      MVUserDefaultsKeys.typicalTimeSuffixes,
+      MVUserDefaultsKeys.hideDigitalTimer
     ]
     for key in keys {
       let value = UserDefaults.standard.bool(forKey: key)
